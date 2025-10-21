@@ -1,0 +1,1022 @@
+{
+  "CLIP": {
+    "total_layers": 24,
+    "layer_mappings": {
+      "0": {
+        "min_percent": 1,
+        "max_percent": 8,
+        "percent_range": "1-8%"
+      },
+      "1": {
+        "min_percent": 9,
+        "max_percent": 12,
+        "percent_range": "9-12%"
+      },
+      "2": {
+        "min_percent": 13,
+        "max_percent": 16,
+        "percent_range": "13-16%"
+      },
+      "3": {
+        "min_percent": 17,
+        "max_percent": 20,
+        "percent_range": "17-20%"
+      },
+      "4": {
+        "min_percent": 21,
+        "max_percent": 24,
+        "percent_range": "21-24%"
+      },
+      "5": {
+        "min_percent": 25,
+        "max_percent": 29,
+        "percent_range": "25-29%"
+      },
+      "6": {
+        "min_percent": 30,
+        "max_percent": 33,
+        "percent_range": "30-33%"
+      },
+      "7": {
+        "min_percent": 34,
+        "max_percent": 37,
+        "percent_range": "34-37%"
+      },
+      "8": {
+        "min_percent": 38,
+        "max_percent": 41,
+        "percent_range": "38-41%"
+      },
+      "9": {
+        "min_percent": 42,
+        "max_percent": 45,
+        "percent_range": "42-45%"
+      },
+      "10": {
+        "min_percent": 46,
+        "max_percent": 49,
+        "percent_range": "46-49%"
+      },
+      "11": {
+        "min_percent": 50,
+        "max_percent": 54,
+        "percent_range": "50-54%"
+      },
+      "12": {
+        "min_percent": 55,
+        "max_percent": 58,
+        "percent_range": "55-58%"
+      },
+      "13": {
+        "min_percent": 59,
+        "max_percent": 62,
+        "percent_range": "59-62%"
+      },
+      "14": {
+        "min_percent": 63,
+        "max_percent": 66,
+        "percent_range": "63-66%"
+      },
+      "15": {
+        "min_percent": 67,
+        "max_percent": 70,
+        "percent_range": "67-70%"
+      },
+      "16": {
+        "min_percent": 71,
+        "max_percent": 74,
+        "percent_range": "71-74%"
+      },
+      "17": {
+        "min_percent": 75,
+        "max_percent": 79,
+        "percent_range": "75-79%"
+      },
+      "18": {
+        "min_percent": 80,
+        "max_percent": 83,
+        "percent_range": "80-83%"
+      },
+      "19": {
+        "min_percent": 84,
+        "max_percent": 87,
+        "percent_range": "84-87%"
+      },
+      "20": {
+        "min_percent": 88,
+        "max_percent": 91,
+        "percent_range": "88-91%"
+      },
+      "21": {
+        "min_percent": 92,
+        "max_percent": 95,
+        "percent_range": "92-95%"
+      },
+      "22": {
+        "min_percent": 96,
+        "max_percent": 99,
+        "percent_range": "96-99%"
+      },
+      "23": {
+        "min_percent": 100,
+        "max_percent": 100,
+        "percent_range": "100-100%"
+      }
+    }
+  },
+  "Llama-Vision": {
+    "total_layers": 40,
+    "layer_mappings": {
+      "0": {
+        "min_percent": 1,
+        "max_percent": 4,
+        "percent_range": "1-4%"
+      },
+      "1": {
+        "min_percent": 5,
+        "max_percent": 7,
+        "percent_range": "5-7%"
+      },
+      "2": {
+        "min_percent": 8,
+        "max_percent": 9,
+        "percent_range": "8-9%"
+      },
+      "3": {
+        "min_percent": 10,
+        "max_percent": 12,
+        "percent_range": "10-12%"
+      },
+      "4": {
+        "min_percent": 13,
+        "max_percent": 14,
+        "percent_range": "13-14%"
+      },
+      "5": {
+        "min_percent": 15,
+        "max_percent": 17,
+        "percent_range": "15-17%"
+      },
+      "6": {
+        "min_percent": 18,
+        "max_percent": 19,
+        "percent_range": "18-19%"
+      },
+      "7": {
+        "min_percent": 20,
+        "max_percent": 22,
+        "percent_range": "20-22%"
+      },
+      "8": {
+        "min_percent": 23,
+        "max_percent": 24,
+        "percent_range": "23-24%"
+      },
+      "9": {
+        "min_percent": 25,
+        "max_percent": 27,
+        "percent_range": "25-27%"
+      },
+      "10": {
+        "min_percent": 28,
+        "max_percent": 29,
+        "percent_range": "28-29%"
+      },
+      "11": {
+        "min_percent": 30,
+        "max_percent": 32,
+        "percent_range": "30-32%"
+      },
+      "12": {
+        "min_percent": 33,
+        "max_percent": 34,
+        "percent_range": "33-34%"
+      },
+      "13": {
+        "min_percent": 35,
+        "max_percent": 37,
+        "percent_range": "35-37%"
+      },
+      "14": {
+        "min_percent": 38,
+        "max_percent": 39,
+        "percent_range": "38-39%"
+      },
+      "15": {
+        "min_percent": 40,
+        "max_percent": 42,
+        "percent_range": "40-42%"
+      },
+      "16": {
+        "min_percent": 43,
+        "max_percent": 44,
+        "percent_range": "43-44%"
+      },
+      "17": {
+        "min_percent": 45,
+        "max_percent": 47,
+        "percent_range": "45-47%"
+      },
+      "18": {
+        "min_percent": 48,
+        "max_percent": 49,
+        "percent_range": "48-49%"
+      },
+      "19": {
+        "min_percent": 50,
+        "max_percent": 52,
+        "percent_range": "50-52%"
+      },
+      "20": {
+        "min_percent": 53,
+        "max_percent": 54,
+        "percent_range": "53-54%"
+      },
+      "21": {
+        "min_percent": 55,
+        "max_percent": 57,
+        "percent_range": "55-57%"
+      },
+      "22": {
+        "min_percent": 58,
+        "max_percent": 59,
+        "percent_range": "58-59%"
+      },
+      "23": {
+        "min_percent": 60,
+        "max_percent": 62,
+        "percent_range": "60-62%"
+      },
+      "24": {
+        "min_percent": 63,
+        "max_percent": 64,
+        "percent_range": "63-64%"
+      },
+      "25": {
+        "min_percent": 65,
+        "max_percent": 67,
+        "percent_range": "65-67%"
+      },
+      "26": {
+        "min_percent": 68,
+        "max_percent": 69,
+        "percent_range": "68-69%"
+      },
+      "27": {
+        "min_percent": 70,
+        "max_percent": 72,
+        "percent_range": "70-72%"
+      },
+      "28": {
+        "min_percent": 73,
+        "max_percent": 74,
+        "percent_range": "73-74%"
+      },
+      "29": {
+        "min_percent": 75,
+        "max_percent": 77,
+        "percent_range": "75-77%"
+      },
+      "30": {
+        "min_percent": 78,
+        "max_percent": 79,
+        "percent_range": "78-79%"
+      },
+      "31": {
+        "min_percent": 80,
+        "max_percent": 82,
+        "percent_range": "80-82%"
+      },
+      "32": {
+        "min_percent": 83,
+        "max_percent": 84,
+        "percent_range": "83-84%"
+      },
+      "33": {
+        "min_percent": 85,
+        "max_percent": 87,
+        "percent_range": "85-87%"
+      },
+      "34": {
+        "min_percent": 88,
+        "max_percent": 89,
+        "percent_range": "88-89%"
+      },
+      "35": {
+        "min_percent": 90,
+        "max_percent": 92,
+        "percent_range": "90-92%"
+      },
+      "36": {
+        "min_percent": 93,
+        "max_percent": 94,
+        "percent_range": "93-94%"
+      },
+      "37": {
+        "min_percent": 95,
+        "max_percent": 97,
+        "percent_range": "95-97%"
+      },
+      "38": {
+        "min_percent": 98,
+        "max_percent": 99,
+        "percent_range": "98-99%"
+      },
+      "39": {
+        "min_percent": 100,
+        "max_percent": 100,
+        "percent_range": "100-100%"
+      }
+    }
+  },
+  "Gemma-2": {
+    "total_layers": 42,
+    "layer_mappings": {
+      "0": {
+        "min_percent": 1,
+        "max_percent": 4,
+        "percent_range": "1-4%"
+      },
+      "1": {
+        "min_percent": 5,
+        "max_percent": 7,
+        "percent_range": "5-7%"
+      },
+      "2": {
+        "min_percent": 8,
+        "max_percent": 9,
+        "percent_range": "8-9%"
+      },
+      "3": {
+        "min_percent": 10,
+        "max_percent": 11,
+        "percent_range": "10-11%"
+      },
+      "4": {
+        "min_percent": 12,
+        "max_percent": 14,
+        "percent_range": "12-14%"
+      },
+      "5": {
+        "min_percent": 15,
+        "max_percent": 16,
+        "percent_range": "15-16%"
+      },
+      "6": {
+        "min_percent": 17,
+        "max_percent": 19,
+        "percent_range": "17-19%"
+      },
+      "7": {
+        "min_percent": 20,
+        "max_percent": 21,
+        "percent_range": "20-21%"
+      },
+      "8": {
+        "min_percent": 22,
+        "max_percent": 23,
+        "percent_range": "22-23%"
+      },
+      "9": {
+        "min_percent": 24,
+        "max_percent": 26,
+        "percent_range": "24-26%"
+      },
+      "10": {
+        "min_percent": 27,
+        "max_percent": 28,
+        "percent_range": "27-28%"
+      },
+      "11": {
+        "min_percent": 29,
+        "max_percent": 30,
+        "percent_range": "29-30%"
+      },
+      "12": {
+        "min_percent": 31,
+        "max_percent": 33,
+        "percent_range": "31-33%"
+      },
+      "13": {
+        "min_percent": 34,
+        "max_percent": 35,
+        "percent_range": "34-35%"
+      },
+      "14": {
+        "min_percent": 36,
+        "max_percent": 38,
+        "percent_range": "36-38%"
+      },
+      "15": {
+        "min_percent": 39,
+        "max_percent": 40,
+        "percent_range": "39-40%"
+      },
+      "16": {
+        "min_percent": 41,
+        "max_percent": 42,
+        "percent_range": "41-42%"
+      },
+      "17": {
+        "min_percent": 43,
+        "max_percent": 45,
+        "percent_range": "43-45%"
+      },
+      "18": {
+        "min_percent": 46,
+        "max_percent": 47,
+        "percent_range": "46-47%"
+      },
+      "19": {
+        "min_percent": 48,
+        "max_percent": 49,
+        "percent_range": "48-49%"
+      },
+      "20": {
+        "min_percent": 50,
+        "max_percent": 52,
+        "percent_range": "50-52%"
+      },
+      "21": {
+        "min_percent": 53,
+        "max_percent": 54,
+        "percent_range": "53-54%"
+      },
+      "22": {
+        "min_percent": 55,
+        "max_percent": 57,
+        "percent_range": "55-57%"
+      },
+      "23": {
+        "min_percent": 58,
+        "max_percent": 59,
+        "percent_range": "58-59%"
+      },
+      "24": {
+        "min_percent": 60,
+        "max_percent": 61,
+        "percent_range": "60-61%"
+      },
+      "25": {
+        "min_percent": 62,
+        "max_percent": 64,
+        "percent_range": "62-64%"
+      },
+      "26": {
+        "min_percent": 65,
+        "max_percent": 66,
+        "percent_range": "65-66%"
+      },
+      "27": {
+        "min_percent": 67,
+        "max_percent": 69,
+        "percent_range": "67-69%"
+      },
+      "28": {
+        "min_percent": 70,
+        "max_percent": 71,
+        "percent_range": "70-71%"
+      },
+      "29": {
+        "min_percent": 72,
+        "max_percent": 73,
+        "percent_range": "72-73%"
+      },
+      "30": {
+        "min_percent": 74,
+        "max_percent": 76,
+        "percent_range": "74-76%"
+      },
+      "31": {
+        "min_percent": 77,
+        "max_percent": 78,
+        "percent_range": "77-78%"
+      },
+      "32": {
+        "min_percent": 79,
+        "max_percent": 80,
+        "percent_range": "79-80%"
+      },
+      "33": {
+        "min_percent": 81,
+        "max_percent": 83,
+        "percent_range": "81-83%"
+      },
+      "34": {
+        "min_percent": 84,
+        "max_percent": 85,
+        "percent_range": "84-85%"
+      },
+      "35": {
+        "min_percent": 86,
+        "max_percent": 88,
+        "percent_range": "86-88%"
+      },
+      "36": {
+        "min_percent": 89,
+        "max_percent": 90,
+        "percent_range": "89-90%"
+      },
+      "37": {
+        "min_percent": 91,
+        "max_percent": 92,
+        "percent_range": "91-92%"
+      },
+      "38": {
+        "min_percent": 93,
+        "max_percent": 95,
+        "percent_range": "93-95%"
+      },
+      "39": {
+        "min_percent": 96,
+        "max_percent": 97,
+        "percent_range": "96-97%"
+      },
+      "40": {
+        "min_percent": 98,
+        "max_percent": 99,
+        "percent_range": "98-99%"
+      },
+      "41": {
+        "min_percent": 100,
+        "max_percent": 100,
+        "percent_range": "100-100%"
+      }
+    }
+  },
+  "Llama-Text": {
+    "total_layers": 32,
+    "layer_mappings": {
+      "0": {
+        "min_percent": 1,
+        "max_percent": 6,
+        "percent_range": "1-6%"
+      },
+      "1": {
+        "min_percent": 7,
+        "max_percent": 9,
+        "percent_range": "7-9%"
+      },
+      "2": {
+        "min_percent": 10,
+        "max_percent": 12,
+        "percent_range": "10-12%"
+      },
+      "3": {
+        "min_percent": 13,
+        "max_percent": 15,
+        "percent_range": "13-15%"
+      },
+      "4": {
+        "min_percent": 16,
+        "max_percent": 18,
+        "percent_range": "16-18%"
+      },
+      "5": {
+        "min_percent": 19,
+        "max_percent": 21,
+        "percent_range": "19-21%"
+      },
+      "6": {
+        "min_percent": 22,
+        "max_percent": 24,
+        "percent_range": "22-24%"
+      },
+      "7": {
+        "min_percent": 25,
+        "max_percent": 28,
+        "percent_range": "25-28%"
+      },
+      "8": {
+        "min_percent": 29,
+        "max_percent": 31,
+        "percent_range": "29-31%"
+      },
+      "9": {
+        "min_percent": 32,
+        "max_percent": 34,
+        "percent_range": "32-34%"
+      },
+      "10": {
+        "min_percent": 35,
+        "max_percent": 37,
+        "percent_range": "35-37%"
+      },
+      "11": {
+        "min_percent": 38,
+        "max_percent": 40,
+        "percent_range": "38-40%"
+      },
+      "12": {
+        "min_percent": 41,
+        "max_percent": 43,
+        "percent_range": "41-43%"
+      },
+      "13": {
+        "min_percent": 44,
+        "max_percent": 46,
+        "percent_range": "44-46%"
+      },
+      "14": {
+        "min_percent": 47,
+        "max_percent": 49,
+        "percent_range": "47-49%"
+      },
+      "15": {
+        "min_percent": 50,
+        "max_percent": 53,
+        "percent_range": "50-53%"
+      },
+      "16": {
+        "min_percent": 54,
+        "max_percent": 56,
+        "percent_range": "54-56%"
+      },
+      "17": {
+        "min_percent": 57,
+        "max_percent": 59,
+        "percent_range": "57-59%"
+      },
+      "18": {
+        "min_percent": 60,
+        "max_percent": 62,
+        "percent_range": "60-62%"
+      },
+      "19": {
+        "min_percent": 63,
+        "max_percent": 65,
+        "percent_range": "63-65%"
+      },
+      "20": {
+        "min_percent": 66,
+        "max_percent": 68,
+        "percent_range": "66-68%"
+      },
+      "21": {
+        "min_percent": 69,
+        "max_percent": 71,
+        "percent_range": "69-71%"
+      },
+      "22": {
+        "min_percent": 72,
+        "max_percent": 74,
+        "percent_range": "72-74%"
+      },
+      "23": {
+        "min_percent": 75,
+        "max_percent": 78,
+        "percent_range": "75-78%"
+      },
+      "24": {
+        "min_percent": 79,
+        "max_percent": 81,
+        "percent_range": "79-81%"
+      },
+      "25": {
+        "min_percent": 82,
+        "max_percent": 84,
+        "percent_range": "82-84%"
+      },
+      "26": {
+        "min_percent": 85,
+        "max_percent": 87,
+        "percent_range": "85-87%"
+      },
+      "27": {
+        "min_percent": 88,
+        "max_percent": 90,
+        "percent_range": "88-90%"
+      },
+      "28": {
+        "min_percent": 91,
+        "max_percent": 93,
+        "percent_range": "91-93%"
+      },
+      "29": {
+        "min_percent": 94,
+        "max_percent": 96,
+        "percent_range": "94-96%"
+      },
+      "30": {
+        "min_percent": 97,
+        "max_percent": 99,
+        "percent_range": "97-99%"
+      },
+      "31": {
+        "min_percent": 100,
+        "max_percent": 100,
+        "percent_range": "100-100%"
+      }
+    }
+  },
+  "Gemma-Text": {
+    "total_layers": 28,
+    "layer_mappings": {
+      "0": {
+        "min_percent": 1,
+        "max_percent": 7,
+        "percent_range": "1-7%"
+      },
+      "1": {
+        "min_percent": 8,
+        "max_percent": 10,
+        "percent_range": "8-10%"
+      },
+      "2": {
+        "min_percent": 11,
+        "max_percent": 14,
+        "percent_range": "11-14%"
+      },
+      "3": {
+        "min_percent": 15,
+        "max_percent": 17,
+        "percent_range": "15-17%"
+      },
+      "4": {
+        "min_percent": 18,
+        "max_percent": 21,
+        "percent_range": "18-21%"
+      },
+      "5": {
+        "min_percent": 22,
+        "max_percent": 24,
+        "percent_range": "22-24%"
+      },
+      "6": {
+        "min_percent": 25,
+        "max_percent": 28,
+        "percent_range": "25-28%"
+      },
+      "7": {
+        "min_percent": 29,
+        "max_percent": 32,
+        "percent_range": "29-32%"
+      },
+      "8": {
+        "min_percent": 33,
+        "max_percent": 35,
+        "percent_range": "33-35%"
+      },
+      "9": {
+        "min_percent": 36,
+        "max_percent": 39,
+        "percent_range": "36-39%"
+      },
+      "10": {
+        "min_percent": 40,
+        "max_percent": 42,
+        "percent_range": "40-42%"
+      },
+      "11": {
+        "min_percent": 43,
+        "max_percent": 46,
+        "percent_range": "43-46%"
+      },
+      "12": {
+        "min_percent": 47,
+        "max_percent": 49,
+        "percent_range": "47-49%"
+      },
+      "13": {
+        "min_percent": 50,
+        "max_percent": 53,
+        "percent_range": "50-53%"
+      },
+      "14": {
+        "min_percent": 54,
+        "max_percent": 57,
+        "percent_range": "54-57%"
+      },
+      "15": {
+        "min_percent": 58,
+        "max_percent": 60,
+        "percent_range": "58-60%"
+      },
+      "16": {
+        "min_percent": 61,
+        "max_percent": 64,
+        "percent_range": "61-64%"
+      },
+      "17": {
+        "min_percent": 65,
+        "max_percent": 67,
+        "percent_range": "65-67%"
+      },
+      "18": {
+        "min_percent": 68,
+        "max_percent": 71,
+        "percent_range": "68-71%"
+      },
+      "19": {
+        "min_percent": 72,
+        "max_percent": 74,
+        "percent_range": "72-74%"
+      },
+      "20": {
+        "min_percent": 75,
+        "max_percent": 78,
+        "percent_range": "75-78%"
+      },
+      "21": {
+        "min_percent": 79,
+        "max_percent": 82,
+        "percent_range": "79-82%"
+      },
+      "22": {
+        "min_percent": 83,
+        "max_percent": 85,
+        "percent_range": "83-85%"
+      },
+      "23": {
+        "min_percent": 86,
+        "max_percent": 89,
+        "percent_range": "86-89%"
+      },
+      "24": {
+        "min_percent": 90,
+        "max_percent": 92,
+        "percent_range": "90-92%"
+      },
+      "25": {
+        "min_percent": 93,
+        "max_percent": 96,
+        "percent_range": "93-96%"
+      },
+      "26": {
+        "min_percent": 97,
+        "max_percent": 99,
+        "percent_range": "97-99%"
+      },
+      "27": {
+        "min_percent": 100,
+        "max_percent": 100,
+        "percent_range": "100-100%"
+      }
+    }
+  },
+  "Qwen-Text": {
+    "total_layers": 32,
+    "layer_mappings": {
+      "0": {
+        "min_percent": 1,
+        "max_percent": 6,
+        "percent_range": "1-6%"
+      },
+      "1": {
+        "min_percent": 7,
+        "max_percent": 9,
+        "percent_range": "7-9%"
+      },
+      "2": {
+        "min_percent": 10,
+        "max_percent": 12,
+        "percent_range": "10-12%"
+      },
+      "3": {
+        "min_percent": 13,
+        "max_percent": 15,
+        "percent_range": "13-15%"
+      },
+      "4": {
+        "min_percent": 16,
+        "max_percent": 18,
+        "percent_range": "16-18%"
+      },
+      "5": {
+        "min_percent": 19,
+        "max_percent": 21,
+        "percent_range": "19-21%"
+      },
+      "6": {
+        "min_percent": 22,
+        "max_percent": 24,
+        "percent_range": "22-24%"
+      },
+      "7": {
+        "min_percent": 25,
+        "max_percent": 28,
+        "percent_range": "25-28%"
+      },
+      "8": {
+        "min_percent": 29,
+        "max_percent": 31,
+        "percent_range": "29-31%"
+      },
+      "9": {
+        "min_percent": 32,
+        "max_percent": 34,
+        "percent_range": "32-34%"
+      },
+      "10": {
+        "min_percent": 35,
+        "max_percent": 37,
+        "percent_range": "35-37%"
+      },
+      "11": {
+        "min_percent": 38,
+        "max_percent": 40,
+        "percent_range": "38-40%"
+      },
+      "12": {
+        "min_percent": 41,
+        "max_percent": 43,
+        "percent_range": "41-43%"
+      },
+      "13": {
+        "min_percent": 44,
+        "max_percent": 46,
+        "percent_range": "44-46%"
+      },
+      "14": {
+        "min_percent": 47,
+        "max_percent": 49,
+        "percent_range": "47-49%"
+      },
+      "15": {
+        "min_percent": 50,
+        "max_percent": 53,
+        "percent_range": "50-53%"
+      },
+      "16": {
+        "min_percent": 54,
+        "max_percent": 56,
+        "percent_range": "54-56%"
+      },
+      "17": {
+        "min_percent": 57,
+        "max_percent": 59,
+        "percent_range": "57-59%"
+      },
+      "18": {
+        "min_percent": 60,
+        "max_percent": 62,
+        "percent_range": "60-62%"
+      },
+      "19": {
+        "min_percent": 63,
+        "max_percent": 65,
+        "percent_range": "63-65%"
+      },
+      "20": {
+        "min_percent": 66,
+        "max_percent": 68,
+        "percent_range": "66-68%"
+      },
+      "21": {
+        "min_percent": 69,
+        "max_percent": 71,
+        "percent_range": "69-71%"
+      },
+      "22": {
+        "min_percent": 72,
+        "max_percent": 74,
+        "percent_range": "72-74%"
+      },
+      "23": {
+        "min_percent": 75,
+        "max_percent": 78,
+        "percent_range": "75-78%"
+      },
+      "24": {
+        "min_percent": 79,
+        "max_percent": 81,
+        "percent_range": "79-81%"
+      },
+      "25": {
+        "min_percent": 82,
+        "max_percent": 84,
+        "percent_range": "82-84%"
+      },
+      "26": {
+        "min_percent": 85,
+        "max_percent": 87,
+        "percent_range": "85-87%"
+      },
+      "27": {
+        "min_percent": 88,
+        "max_percent": 90,
+        "percent_range": "88-90%"
+      },
+      "28": {
+        "min_percent": 91,
+        "max_percent": 93,
+        "percent_range": "91-93%"
+      },
+      "29": {
+        "min_percent": 94,
+        "max_percent": 96,
+        "percent_range": "94-96%"
+      },
+      "30": {
+        "min_percent": 97,
+        "max_percent": 99,
+        "percent_range": "97-99%"
+      },
+      "31": {
+        "min_percent": 100,
+        "max_percent": 100,
+        "percent_range": "100-100%"
+      }
+    }
+  }
+}

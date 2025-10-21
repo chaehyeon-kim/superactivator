@@ -1,12 +1,10 @@
 import sys
-import os
 import torch
 import argparse
 
 from transformers import MllamaForConditionalGeneration, AutoModel
 from transformers import AutoProcessor, AutoTokenizer
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.embedding_utils import compute_batch_embeddings
 from utils.general_utils import load_text
 from utils.gt_concept_segmentation_utils import compute_attention_masks, map_sentence_to_concept_gt

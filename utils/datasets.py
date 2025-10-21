@@ -3,6 +3,8 @@
 import pandas as pd
 from torch.utils.data import Dataset
 
+from utils import data_path, repo_path
+
 from .general_utils import load_images, retrieve_present_concepts
 
 
@@ -14,25 +16,17 @@ class ImageDataset(Dataset):
     """
 
     def __init__(self, root=".", dataset_name="CLEVR", transform=None, split=None):
-        """
-        Initialize the ImageDataset.
-
-        Args:
-            root (str): Root directory where data is stored.
-            dataset_name (str): Name of the dataset to load.
-            transform (callable, optional): Optional transform to be applied to images.
-            split (str, optional): If provided, only use 'train' or 'test' images.
-        """
+        """Initialize the ImageDataset."""
         self.root = root
         self.dataset_name = dataset_name
         self.transform = transform
         self.split = split
 
         # Load all images using the load_images function
-        all_images, train_images, test_images = load_images(root=root, dataset_name=dataset_name)
+        all_images, train_images, test_images = load_images(dataset_name=dataset_name)
 
         # Load metadata to get concept information
-        self.metadata = pd.read_csv(f"{root}/Data/{dataset_name}/metadata.csv")
+        self.metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
 
         # Select images based on the split
         if split == "train":
@@ -89,11 +83,13 @@ class ImageDataset(Dataset):
         Returns:
             list: Names of concepts present in the image.
         """
-        return retrieve_present_concepts(idx, self.dataset_name, self.root)
+        return retrieve_present_concepts(idx, self.dataset_name)
 
 
 def main():
-    root = "/workspace/"
+    from utils import repo_path
+
+    root = str(repo_path())
     dataset = ImageDataset(root=root, split="train")
 
     print(f"Number of images in dataset: {len(dataset)}")
@@ -107,7 +103,7 @@ def main():
 
     print()
 
-    root = "/workspace/"
+    root = str(repo_path())
     dataset = ImageDataset(root=root, dataset_name="Coco", split="train")
 
     print(f"Number of images in dataset: {len(dataset)}")

@@ -13,6 +13,8 @@ from tqdm import tqdm
 import argparse
 from collections import defaultdict
 
+from utils import data_path
+
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from utils.general_utils import get_split_df
@@ -44,7 +46,7 @@ def get_calibration_indices(dataset_name, sample_type, model_type):
     """
     # Load split information
     # When running from Experiments/, Data is one level up
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     split_series = metadata['split']
     
     # Get calibration sample indices

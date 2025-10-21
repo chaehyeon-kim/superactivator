@@ -1,11 +1,6 @@
 import torch
-import sys
-import os
 import argparse
 from itertools import product
-sys.path.append(os.path.abspath("../"))
-
-import utils.gt_concept_segmentation_utils as gt_concept_segmentation_utils
 
 from utils.gt_concept_segmentation_utils import map_concepts_to_image_indices, map_concepts_to_patch_indices, sort_mapping_by_split
 

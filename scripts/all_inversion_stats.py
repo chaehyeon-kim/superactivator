@@ -23,24 +23,16 @@ Usage examples:
 """
 
 import torch
-import torch.nn.functional as F
-from tqdm import tqdm
 import sys
 import os
 from collections import defaultdict
 from itertools import product
 import argparse
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import gc
-import time
 
-from utils.compute_concepts_utils import gpu_kmeans, compute_linear_separators, compute_avg_concept_vectors
-from utils.activation_utils import compute_cosine_sims, compute_signed_distances
-from utils.unsupervised_utils import compute_detection_metrics_over_percentiles_allpairs, find_best_clusters_per_concept_from_detectionmetrics, filter_and_save_best_clusters, get_matched_concepts_and_data, \
-compute_concept_thresholds_over_percentiles_all_pairs
+from utils.unsupervised_utils import get_matched_concepts_and_data
 from utils.superdetector_inversion_utils import all_superdetector_inversions_across_percentiles, detect_then_invert_superdetector_twostage_metrics, find_optimal_twostage_superdetector_thresholds, detect_then_invert_twostage_superdetector_with_optimal_thresholds
 from utils.quant_concept_evals_utils import find_optimal_detect_invert_thresholds, compute_concept_thresholds_over_percentiles, compute_detection_metrics_over_percentiles, detect_then_invert_metrics_over_percentiles, detect_then_invert_with_optimal_thresholds
-from utils.gt_concept_segmentation_utils import map_concepts_to_patch_indices, map_concepts_to_image_indices
 from utils.memory_management_utils import ChunkedEmbeddingLoader, MatchedConceptActivationLoader
 from utils.filter_datasets_utils import filter_concept_dict
 from utils.default_percentthrumodels import ALL_PERCENTTHRUMODELS, get_model_default_percentthrumodels

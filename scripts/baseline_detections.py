@@ -1,26 +1,15 @@
 import torch
-import torch.nn.functional as F
-import pandas as pd
-from tqdm import tqdm
 import sys
-import os
 import argparse
 import gc
-from collections import defaultdict
 from itertools import product
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from utils.compute_concepts_utils import gpu_kmeans, compute_linear_separators
-from utils.activation_utils import compute_cosine_sims, compute_signed_distances
 from utils.memory_management_utils import ChunkedActivationLoader
 from utils.filter_datasets_utils import filter_concept_dict
 from utils.default_percentthrumodels import ALL_PERCENTTHRUMODELS, get_model_default_percentthrumodels
 from utils.baseline_detection_utils import (compute_aggregated_activation_thresholds_over_percentiles,
                                            compute_aggregated_detection_metrics_over_percentiles,
                                            find_best_aggregated_detection_percentiles_cal,
-                                           compute_max_activation_thresholds_over_percentiles,
-                                           compute_baseline_detection_metrics_over_percentiles,
-                                           find_best_baseline_detection_percentiles_cal,
                                            compute_aggregated_activation_thresholds_over_percentiles_all_pairs,
                                            compute_aggregated_detection_metrics_over_percentiles_allpairs,
                                            find_best_clusters_per_concept_from_aggregated_detectionmetrics,

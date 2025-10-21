@@ -271,7 +271,7 @@ def get_dataset_patch_mask(model_input_size, original_sizes, tot_num_patches, da
 
 
 def filter_patches_by_image_presence(indices, dataset_name, model_input_size):
-    patch_mask = torch.load(f'GT_Samples/{dataset_name}/patches_w_image_mask_inputsize_{model_input_size}.pt', weights_only=False)
+    patch_mask = torch.load(f'Data/{dataset_name}/patches_w_image_mask_inputsize_{model_input_size}.pt', weights_only=False)
     
     # Convert the mask to a list of integers if needed
     mask_list = patch_mask.tolist()

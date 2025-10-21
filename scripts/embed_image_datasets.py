@@ -1,14 +1,9 @@
-import sys
-import os
 import torch
 import argparse
 
 from transformers import CLIPModel, AutoProcessor, MllamaForConditionalGeneration
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.general_utils import load_images
-from utils.compute_concepts_utils import compute_avg_concept_vectors
-from utils.activation_utils import compute_cosine_sims
 from utils.embedding_utils import compute_batch_embeddings
 from utils.default_percentthrumodels import CLIP_PERCENTTHRUMODELS, LLAMA_VISION_PERCENTTHRUMODELS
 

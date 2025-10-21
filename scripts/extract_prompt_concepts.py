@@ -5,16 +5,14 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import torch
 from tqdm import tqdm
 from vllm import LLM
 
-import sys
-sys.path.append('/workspace/Experiments')
+from utils import data_path, repo_path
+
 # from utils.datasets import ImageDataset  # Not used - using FixedImageDataset instead
 from utils.inversion_methods import prompt_inversion
 from utils.prompt_concepts import LLMNet, RawInput
-from utils.quant_concept_evals_utils import compute_concept_thresholds
 
 
 class FixedImageDataset:
@@ -26,7 +24,7 @@ class FixedImageDataset:
         self.split = split
 
         # Load metadata to get concept information
-        self.metadata = pd.read_csv(f"/workspace/Data/{dataset_name}/metadata.csv")
+        self.metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
 
         # Select images based on the split
         if split == "train":
@@ -67,14 +65,14 @@ class FixedImageDataset:
         # Check if this is a text dataset
         if 'text_path' in self.metadata.columns:
             # Load text
-            text_path = f"/workspace/Data/{self.dataset_name}/{self.metadata.iloc[idx]['text_path']}"
+            text_path = data_path(self.dataset_name, self.metadata.iloc[idx]['text_path'])
             with open(text_path, 'r', encoding='utf-8') as f:
                 text = f.read().strip()
             data = text
         else:
             # Load image
             from PIL import Image
-            image_path = f"/workspace/Data/{self.dataset_name}/{self.metadata.iloc[idx]['image_path']}"
+            image_path = data_path(self.dataset_name, self.metadata.iloc[idx]['image_path'])
             image = Image.open(image_path).convert("RGB")
             
             # Apply transforms if available
@@ -110,7 +108,7 @@ def concept_inversion(args):
 
     # load dataset
     data = FixedImageDataset(
-        root="/workspace", dataset_name=args.dataset, split="test"
+        root=repo_path(), dataset_name=args.dataset, split="test"
     )
     concept_names = data.get_concept_names()
 
@@ -118,7 +116,7 @@ def concept_inversion(args):
         concept_names.remove("class")
 
     # load detected concepts
-    concepts_file = f"{prompt_results_dir}/{args.dataset}_{args.model.split('/')[1]}_concepts.txt"
+    concepts_file = os.path.join(prompt_results_dir, f"{args.dataset}_{args.model.split('/')[1]}_concepts.txt")
     with open(concepts_file, mode="r") as file:
         reader = csv.reader(file)
         next(reader)  # Skip header
@@ -173,7 +171,7 @@ def main(args):
 
     # load dataset
     data = FixedImageDataset(
-        root="/workspace", dataset_name=args.dataset, split="test"
+        root=repo_path(), dataset_name=args.dataset, split="test"
     )
     concept_names = data.get_concept_names()
 
@@ -266,7 +264,7 @@ def eval(args):
     
     # load dataset
     data = FixedImageDataset(
-        root="/workspace", dataset_name=args.dataset, split="test"
+        root=repo_path(), dataset_name=args.dataset, split="test"
     )
     concept_names = data.get_concept_names()
 
@@ -407,7 +405,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="/workspace/Experiments",
+        default=str(repo_path("Experiments")),
         help="The output directory for extracted concepts.",
     )
     parser.add_argument("--eval", action="store_true", help="Whether to evaluate the concepts.")

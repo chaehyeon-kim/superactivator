@@ -1,6 +1,6 @@
 """General utils"""
 from PIL import Image, ImageDraw, ImageFont, ImageOps
-import os
+from utils import data_path, figs_path
 import pandas as pd
 import matplotlib.pyplot as plt
 import torch
@@ -20,8 +20,8 @@ def retrieve_image(img_idx, dataset_name, test_only=False):
     Returns:
         PIL.Image: The image corresponding to the specified index.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
-    image_path = os.path.join(f'../Data/{dataset_name}', metadata.iloc[img_idx]['image_path'])
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
+    image_path = data_path(dataset_name, metadata.iloc[img_idx]['image_path'])
     # if test_only:
     #     metadata = metadata[metadata["split"] == "test"].reset_index(drop=True)
     image = Image.open(image_path).convert("RGB")
@@ -53,7 +53,7 @@ def load_images(dataset_name, model_input_size=None):
     Returns:
         list: A list of PIL.Image objects.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
         
     image_paths = metadata['image_path'].tolist()
     if 'split' in metadata.columns:
@@ -63,7 +63,7 @@ def load_images(dataset_name, model_input_size=None):
     for idx, info in tqdm(metadata.iterrows(), total=len(metadata), desc="Loading Images"):
         image_filename = info['image_path']
         # Always load from local Data directory
-        image = Image.open(f'../Data/{dataset_name}/{image_filename}').convert("RGB")
+        image = Image.open(data_path(dataset_name, image_filename)).convert("RGB")
         if model_input_size: #reshape image if it's bigger than the model input size (could deal with this through tiles)
             new_width, new_height = get_resized_dims_w_same_ar(image.size, model_input_size)
             image = image.resize((new_width, new_height), Image.LANCZOS)
@@ -98,7 +98,7 @@ def load_text(dataset_name):
     Returns:
         tuple: (all_text, train_text, test_text)
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
 
     # Use drop_duplicates to avoid reading the same file multiple times
 #     unique_samples = metadata.drop_duplicates(subset='sample_filename')
@@ -109,7 +109,7 @@ def load_text(dataset_name):
     for _, row in tqdm(metadata.iterrows(), total=len(metadata), desc="Loading unique sentences"):
         #filename = row['sample_filename']
         filename = row['text_path']
-        with open(f'../Data/{dataset_name}/{filename}', 'r') as f:
+        with open(data_path(dataset_name, filename), 'r') as f:
             text = f.read()
         all_text.append(text)
         if row['split'] == 'train':
@@ -326,7 +326,7 @@ def pad_or_resize_img_tensor(image_tensor, model_input_size, is_mask=False):
 
 
 def retrieve_topn_samples(dataset_name, top_n, start_idx=0, split='test'):
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     if split == 'both':
         my_indices = metadata.index[start_idx:top_n+start_idx]
     else:
@@ -335,7 +335,7 @@ def retrieve_topn_samples(dataset_name, top_n, start_idx=0, split='test'):
     return my_indices
 
 def retrieve_topn_images_byconcepts(dataset_name, top_n, concepts, split='test'):
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     split_indices = metadata[metadata['split'] == split]
     
     split_concept_indices = []
@@ -355,8 +355,8 @@ def retrieve_topn_images_byconcepts(dataset_name, top_n, concepts, split='test')
 
 def retrieve_present_concepts(sample_idx, dataset_name):
     # Define the path to the metadata file based on the dataset
-    data_dir = f'../Data/{dataset_name}/'
-    metadata_df = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    data_dir = data_path(dataset_name)
+    metadata_df = pd.read_csv(data_path(dataset_name, "metadata.csv"))
 
     # Select the metadata for the image at img_idx
     img_metadata = metadata_df.iloc[sample_idx]
@@ -386,7 +386,7 @@ def get_split_df(dataset_name):
     Returns:
         pd.DataFrame: A new DataFrame where each patch has its own row and inherits the split from the image.
     """
-    per_sample_metadata_df = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    per_sample_metadata_df = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     split_df = per_sample_metadata_df['split']
     
     return split_df
@@ -408,7 +408,7 @@ def get_global_index_from_split_index(dataset_name, split_name, nth_in_split):
         # Get the global index of the 5th test sample
         global_idx = get_global_index_from_split_index('CLEVR', 'test', 4)
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     
     # Get all indices for the specified split
     split_indices = metadata[metadata['split'] == split_name].index
@@ -438,7 +438,7 @@ def get_split_index_from_global_index(dataset_name, global_index):
         split_name, nth = get_split_index_from_global_index('CLEVR', 1000)
         # Returns e.g., ('test', 42) meaning it's the 43rd test sample
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     
     if global_index >= len(metadata):
         raise ValueError(f"Global index {global_index} out of bounds for dataset with {len(metadata)} samples")
@@ -502,7 +502,7 @@ def plot_image_with_attributes(image_index, dataset_name='CLEVR', save_image=Fal
         image_index (int): The index of the image in the dataset.
         dataset_name (str): Name of the dataset to load the image from.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     # if test_only:
     #     metadata = metadata[metadata["split"] == "test"].reset_index(drop=True)
     font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
@@ -512,7 +512,7 @@ def plot_image_with_attributes(image_index, dataset_name='CLEVR', save_image=Fal
     attributes = [attr for attr in info.index if ((attr not in ['image_path', 'class', 'split']) and (info.loc[attr] == 1))]
 
     image_path = info.loc['image_path']
-    img = Image.open(f'../Data/{dataset_name}/{image_path}')
+    img = Image.open(data_path(dataset_name, image_path))
 
     # Create a new image with extra space at the bottom to accommodate the text
     text_height = 4  # Adjust the height of the text area
@@ -553,7 +553,7 @@ def plot_image_with_attributes(image_index, dataset_name='CLEVR', save_image=Fal
 
     # Save the new image with attributes underneath
     if save_image:
-        output_image_path = f'../Figs/{dataset_name}/examples/example_{image_index}.jpg'
+        output_image_path = figs_path(dataset_name, "examples", f"example_{image_index}.jpg")
         new_img.save(output_image_path, dpi=(500, 500))
         
 
@@ -566,7 +566,7 @@ def plot_random_image_samples(dataset_name='CLEVR', num_samples=10, save_image=T
         num_samples (int): Number of sample images to plot.
         save_image (Boolean): Whether to save png file of image.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(data_path(dataset_name, "metadata.csv"))
     total_samples = len(metadata)
 
     random_indices = np.random.choice(total_samples, num_samples, replace=False)

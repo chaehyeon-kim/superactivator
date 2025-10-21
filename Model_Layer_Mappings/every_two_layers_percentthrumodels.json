@@ -1,0 +1,312 @@
+{
+  "CLIP": {
+    "total_layers": 24,
+    "percentthrumodels": [
+      4,
+      25,
+      46,
+      67,
+      88,
+      100
+    ],
+    "layer_mappings": [
+      {
+        "percentthrumodel": 4,
+        "layer": 0,
+        "description": "Layer 0 of 23"
+      },
+      {
+        "percentthrumodel": 25,
+        "layer": 5,
+        "description": "Layer 5 of 23"
+      },
+      {
+        "percentthrumodel": 46,
+        "layer": 10,
+        "description": "Layer 10 of 23"
+      },
+      {
+        "percentthrumodel": 67,
+        "layer": 15,
+        "description": "Layer 15 of 23"
+      },
+      {
+        "percentthrumodel": 100,
+        "layer": 23,
+        "description": "Layer 23 of 23"
+      }
+    ]
+  },
+  "Llama-Vision": {
+    "total_layers": 40,
+    "percentthrumodels": [
+      2,
+      15,
+      28,
+      40,
+      52,
+      65,
+      78,
+      90,
+      100
+    ],
+    "layer_mappings": [
+      {
+        "percentthrumodel": 15,
+        "layer": 5,
+        "description": "Layer 5 of 39"
+      },
+      {
+        "percentthrumodel": 28,
+        "layer": 10,
+        "description": "Layer 10 of 39"
+      },
+      {
+        "percentthrumodel": 40,
+        "layer": 15,
+        "description": "Layer 15 of 39"
+      },
+      {
+        "percentthrumodel": 65,
+        "layer": 25,
+        "description": "Layer 25 of 39"
+      },
+      {
+        "percentthrumodel": 90,
+        "layer": 35,
+        "description": "Layer 35 of 39"
+      },
+      {
+        "percentthrumodel": 100,
+        "layer": 39,
+        "description": "Layer 39 of 39"
+      }
+    ]
+  },
+  "Gemma-2": {
+    "total_layers": 42,
+    "percentthrumodels": [
+      2,
+      14,
+      26,
+      38,
+      50,
+      62,
+      74,
+      86,
+      98,
+      100
+    ],
+    "layer_mappings": [
+      {
+        "percentthrumodel": 2,
+        "layer": 0,
+        "description": "Layer 0 of 41"
+      },
+      {
+        "percentthrumodel": 14,
+        "layer": 5,
+        "description": "Layer 5 of 41"
+      },
+      {
+        "percentthrumodel": 26,
+        "layer": 10,
+        "description": "Layer 10 of 41"
+      },
+      {
+        "percentthrumodel": 38,
+        "layer": 15,
+        "description": "Layer 15 of 41"
+      },
+      {
+        "percentthrumodel": 50,
+        "layer": 20,
+        "description": "Layer 20 of 41"
+      },
+      {
+        "percentthrumodel": 62,
+        "layer": 25,
+        "description": "Layer 25 of 41"
+      },
+      {
+        "percentthrumodel": 74,
+        "layer": 30,
+        "description": "Layer 30 of 41"
+      },
+      {
+        "percentthrumodel": 86,
+        "layer": 35,
+        "description": "Layer 35 of 41"
+      },
+      {
+        "percentthrumodel": 98,
+        "layer": 40,
+        "description": "Layer 40 of 41"
+      },
+      {
+        "percentthrumodel": 100,
+        "layer": 41,
+        "description": "Layer 41 of 41"
+      }
+    ]
+  },
+  "Llama-Text": {
+    "total_layers": 32,
+    "percentthrumodels": [
+      3,
+      19,
+      34,
+      50,
+      66,
+      81,
+      97,
+      100
+    ],
+    "layer_mappings": [
+      {
+        "percentthrumodel": 3,
+        "layer": 0,
+        "description": "Layer 0 of 31"
+      },
+      {
+        "percentthrumodel": 19,
+        "layer": 5,
+        "description": "Layer 5 of 31"
+      },
+      {
+        "percentthrumodel": 34,
+        "layer": 10,
+        "description": "Layer 10 of 31"
+      },
+      {
+        "percentthrumodel": 50,
+        "layer": 15,
+        "description": "Layer 15 of 31"
+      },
+      {
+        "percentthrumodel": 66,
+        "layer": 20,
+        "description": "Layer 20 of 31"
+      },
+      {
+        "percentthrumodel": 81,
+        "layer": 25,
+        "description": "Layer 25 of 31"
+      },
+      {
+        "percentthrumodel": 97,
+        "layer": 30,
+        "description": "Layer 30 of 31"
+      },
+      {
+        "percentthrumodel": 100,
+        "layer": 31,
+        "description": "Layer 31 of 31"
+      }
+    ]
+  },
+  "Gemma-Text": {
+    "total_layers": 28,
+    "percentthrumodels": [
+      4,
+      21,
+      39,
+      57,
+      75,
+      93,
+      100
+    ],
+    "layer_mappings": [
+      {
+        "percentthrumodel": 4,
+        "layer": 0,
+        "description": "Layer 0 of 27"
+      },
+      {
+        "percentthrumodel": 21,
+        "layer": 5,
+        "description": "Layer 5 of 27"
+      },
+      {
+        "percentthrumodel": 39,
+        "layer": 10,
+        "description": "Layer 10 of 27"
+      },
+      {
+        "percentthrumodel": 57,
+        "layer": 15,
+        "description": "Layer 15 of 27"
+      },
+      {
+        "percentthrumodel": 75,
+        "layer": 20,
+        "description": "Layer 20 of 27"
+      },
+      {
+        "percentthrumodel": 93,
+        "layer": 25,
+        "description": "Layer 25 of 27"
+      },
+      {
+        "percentthrumodel": 100,
+        "layer": 27,
+        "description": "Layer 27 of 27"
+      }
+    ]
+  },
+  "Qwen-Text": {
+    "total_layers": 32,
+    "percentthrumodels": [
+      3,
+      19,
+      34,
+      50,
+      66,
+      81,
+      97,
+      100
+    ],
+    "layer_mappings": [
+      {
+        "percentthrumodel": 3,
+        "layer": 0,
+        "description": "Layer 0 of 31"
+      },
+      {
+        "percentthrumodel": 19,
+        "layer": 5,
+        "description": "Layer 5 of 31"
+      },
+      {
+        "percentthrumodel": 34,
+        "layer": 10,
+        "description": "Layer 10 of 31"
+      },
+      {
+        "percentthrumodel": 50,
+        "layer": 15,
+        "description": "Layer 15 of 31"
+      },
+      {
+        "percentthrumodel": 66,
+        "layer": 20,
+        "description": "Layer 20 of 31"
+      },
+      {
+        "percentthrumodel": 81,
+        "layer": 25,
+        "description": "Layer 25 of 31"
+      },
+      {
+        "percentthrumodel": 97,
+        "layer": 30,
+        "description": "Layer 30 of 31"
+      },
+      {
+        "percentthrumodel": 100,
+        "layer": 31,
+        "description": "Layer 31 of 31"
+      }
+    ]
+  }
+}

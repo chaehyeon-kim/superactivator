@@ -11,10 +11,11 @@ from collections import defaultdict
 from sklearn.metrics import auc
 import sys
 sys.path.append(os.path.abspath(".."))
-if os.path.exists('./Experiments'):
-    os.chdir('./Experiments')
-else:
-    os.chdir('/workspace/Experiments')
+from utils import repo_file, repo_path
+
+experiments_dir = repo_path('Experiments')
+if experiments_dir.exists():
+    os.chdir(experiments_dir)
 
 from utils.filter_datasets_utils import filter_concept_dict
 from utils.general_utils import get_paper_plotting_style
@@ -452,7 +453,7 @@ def get_per_concept_prompt_scores(dataset_name, model_name, metric, split='test'
     if os.path.exists('./Experiments'):
         prompt_results_dir = f'./Experiments/prompt_results/{dataset_name}'
     else:
-        prompt_results_dir = f'/workspace/Experiments/prompt_results/{dataset_name}'
+    prompt_results_dir = repo_path('Experiments', 'prompt_results', dataset_name)
     csv_files = [f for f in os.listdir(prompt_results_dir) if f.endswith('_f1_scores.csv') and dataset_name in f]
 
     if not csv_files:
@@ -9849,12 +9850,13 @@ def compute_aggregated_error_from_per_ptm_ci(dataset_name, con_label, metric, we
                 ci_file = f'Quant_Results_with_CI/{dataset_name}/per_concept_ci_optimal_{con_label}_percentthrumodel_{ptm}.csv'
             
             # Try absolute path if relative doesn't exist
-            if not os.path.exists(ci_file):
-                ci_file = f'/workspace/Experiments/{ci_file}'
-                
-            if os.path.exists(ci_file):
+            ci_path = repo_file(ci_file)
+            if not os.path.exists(ci_path):
+                ci_path = repo_path('Experiments', *ci_file.split('/'))
+            
+            if os.path.exists(ci_path):
                 try:
-                    ci_df = pd.read_csv(ci_file)
+                    ci_df = pd.read_csv(ci_path)
                     error_col = f'{metric}_error'
                     
                     if error_col in ci_df.columns:

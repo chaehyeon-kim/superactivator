@@ -4,6 +4,8 @@ Summarize which SAE units were kept after pruning for each dataset/model combina
 """
 
 import json
+
+from utils import repo_path
 import os
 import glob
 
@@ -106,7 +108,7 @@ def summarize_kept_units():
         print(f"Gemma cls: avg {avg:.0f} units kept across {len(gemma_cls_kept)} datasets")
     
     # Save full mapping to file
-    output_file = '/workspace/Experiments/scripts/pretrained_saes/kept_units_summary.json'
+    output_file = repo_path('Experiments', 'scripts', 'pretrained_saes', 'kept_units_summary.json')
     with open(output_file, 'w') as f:
         # Save full unit lists
         full_summary = {}

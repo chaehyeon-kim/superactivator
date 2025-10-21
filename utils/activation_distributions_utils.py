@@ -22,6 +22,7 @@ import warnings
 import pandas as pd
 import seaborn as sns
 
+from utils import repo_path
 from utils.patch_alignment_utils import filter_patches_by_image_presence
 from utils.memory_management_utils import convert_image_indices_to_patch_indices, map_global_to_split_local, ChunkedActivationLoader
 from utils.filter_datasets_utils import filter_concept_dict
@@ -5197,10 +5198,16 @@ def analyze_gaussian_mixture_for_concepts(
     # Save results
     if save_results:
         if save_path is None:
-            output_dir = f"/workspace/Experiments/Quant_Results/{dataset_name}/gaussian_mixture_analysis/"
+            output_dir = repo_path(
+                "Experiments",
+                "Quant_Results",
+                dataset_name,
+                "gaussian_mixture_analysis",
+            )
             os.makedirs(output_dir, exist_ok=True)
-            save_path = os.path.join(output_dir, 
-                f"gaussian_mixture_analysis_{model_name}_{concept_type}_ptm{percent_thru_model}.pt")
+            save_path = output_dir / (
+                f"gaussian_mixture_analysis_{model_name}_{concept_type}_ptm{percent_thru_model}.pt"
+            )
         
         torch.save({
             'concept_results': results,

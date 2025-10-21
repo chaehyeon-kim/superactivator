@@ -15,20 +15,15 @@ Usage:
 """
 
 import os
-import sys
 import torch
 import argparse
-from tqdm import tqdm
 from itertools import product
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from utils.memory_management_utils import ChunkedActivationLoader
 from utils.activation_distributions_utils import (
     get_activation_distributions_for_non_concept_samples,
     get_activation_distributions_for_with_concept_samples,
     get_activation_distributions_with_patch_level,
-    plot_activation_distributions
 )
 
 # Global configurations (same as all_detection_stats.py)

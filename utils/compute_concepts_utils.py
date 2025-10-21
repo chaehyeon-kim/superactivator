@@ -1,5 +1,6 @@
 """Utils for Computing Concepts"""
 
+from pathlib import Path
 from tqdm import tqdm
 import os
 import pandas as pd
@@ -11,8 +12,6 @@ import copy
 import gc
 import sys
 import json
-
-sys.path.append(os.path.abspath(".."))
 
 import torch
 from torchvision import transforms
@@ -448,6 +447,7 @@ def compute_avg_concept_vectors(gt_samples_per_concept_train, loader, dataset_na
         gc.collect()
     
     if output_file:
+        Path('Concepts', dataset_name).mkdir(parents=True, exist_ok=True)
         torch.save(concepts, f'Concepts/{dataset_name}/{output_file}')
         print(f'Concepts saved to Concepts/{dataset_name}/{output_file} :)')
     

@@ -1,23 +1,13 @@
 import torch
-import torch.nn.functional as F
-import pandas as pd
-from tqdm import tqdm
-import os
 import gc
 import argparse
 from collections import defaultdict
 from itertools import product
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from utils.compute_concepts_utils import gpu_kmeans, compute_linear_separators, compute_avg_concept_vectors
-from utils.activation_utils import compute_cosine_sims, compute_signed_distances
-from utils.memory_management_utils import ChunkedEmbeddingLoader, ChunkedActivationLoader
-from utils.unsupervised_utils import compute_detection_metrics_over_percentiles_allpairs, find_best_clusters_per_concept_from_detectionmetrics, filter_and_save_best_clusters, get_matched_concepts_and_data, compute_concept_thresholds_over_percentiles_all_pairs
-from utils.superdetector_inversion_utils import all_superdetector_inversions_across_percentiles, find_all_superdetector_patches
-from utils.quant_concept_evals_utils import compute_concept_thresholds_over_percentiles, compute_detection_metrics_over_percentiles, find_best_detection_percentiles_cal
-from utils.gt_concept_segmentation_utils import map_concepts_to_patch_indices, map_concepts_to_image_indices
+from utils.memory_management_utils import ChunkedActivationLoader
+from utils.unsupervised_utils import compute_detection_metrics_over_percentiles_allpairs, find_best_clusters_per_concept_from_detectionmetrics, filter_and_save_best_clusters
+from utils.quant_concept_evals_utils import compute_detection_metrics_over_percentiles, find_best_detection_percentiles_cal
 from utils.filter_datasets_utils import filter_concept_dict
 from utils.default_percentthrumodels import ALL_PERCENTTHRUMODELS, get_model_default_percentthrumodels
 

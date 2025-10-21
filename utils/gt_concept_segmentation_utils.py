@@ -94,7 +94,7 @@ def remap_text_ground_truth_indices(gt_indices: Set[int], dataset_name: str, spl
     
     return remapped_indices
 def plot_seg_maps(dataset_name, input_image_size=(224, 224), img_idx=-1):
-    data_dir = f'../Data/{dataset_name}/'
+    data_dir = f'Data/{dataset_name}/'
     metadata = pd.read_csv(f'{data_dir}/metadata.csv')
     n_images = len(metadata)
     
@@ -256,7 +256,7 @@ def map_concepts_to_image_indices(dataset_name, model_input_size):
         defaultdict(list): A dictionary where keys are concepts and values are lists of image indices 
                            that contain the respective concept.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(f'Data/{dataset_name}/metadata.csv')
     concepts = [col for col in metadata.columns if col != "image_path" and col != 'split']
     if dataset_name =='Coco' or dataset_name == 'Coco-Cal':
         concepts = filter_coco_concepts(concepts)
@@ -277,7 +277,7 @@ def map_concepts_to_patch_indices(dataset_name, model_input_size, patch_size=14)
     """
     Maps concepts to patch indices based on object masks and metadata.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(f'Data/{dataset_name}/metadata.csv')
     curr_concepts = [col for col in metadata.columns if col not in ['split', 'class', 'image_path']]
     if dataset_name in ['Coco', 'Coco-Cal']:
         curr_concepts = filter_coco_concepts(metadata.columns)
@@ -288,7 +288,7 @@ def map_concepts_to_patch_indices(dataset_name, model_input_size, patch_size=14)
 
     all_segs = None
     if 'Broden' in dataset_name:
-        all_segs =  torch.load(f'../Data/{dataset_name}/segmentations.pt')
+        all_segs =  torch.load(f'Data/{dataset_name}/segmentations.pt')
         
     for idx, info in tqdm(metadata.iterrows(), total=metadata.shape[0]):
         active_concepts = [concept for concept in curr_concepts if info[concept] == 1]
@@ -524,7 +524,7 @@ def map_sentences_to_concept_gt_jailbreak(dataset_name, model_input_size):
     concept_to_sentences = defaultdict(list)
     concept_to_sentences_train = defaultdict(list)
     concept_to_sentences_test = defaultdict(list)
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(f'Data/{dataset_name}/metadata.csv')
     for idx, row in metadata.iterrows():
         class_as_list = row['class'].split()
         if class_as_list[0] == 'benign': #might need to change this if you change how you get concepts
@@ -664,14 +664,14 @@ def map_sentence_to_concept_gt(dataset_name, model_input_size, one_indexed):
 
     # Load data
     if 'Sarcasm' in dataset_name:
-        word_df = pd.read_csv(f'../Data/{dataset_name}/word_level_sarcasm.csv')
-        sentence_df = pd.read_csv(f'../Data/{dataset_name}/paragraph_level_sarcasm.csv')
+        word_df = pd.read_csv(f'Data/{dataset_name}/word_level_sarcasm.csv')
+        sentence_df = pd.read_csv(f'Data/{dataset_name}/paragraph_level_sarcasm.csv')
     elif 'Emotion' in dataset_name:
-        word_df = pd.read_csv(f'../Data/{dataset_name}/word_level_emotion.csv')
-        sentence_df = pd.read_csv(f'../Data/{dataset_name}/paragraph_level_emotion.csv')
+        word_df = pd.read_csv(f'Data/{dataset_name}/word_level_emotion.csv')
+        sentence_df = pd.read_csv(f'Data/{dataset_name}/paragraph_level_emotion.csv')
     else:
-        word_df = pd.read_csv(f'../Data/{dataset_name}/word_level_sentiment.csv')
-        sentence_df = pd.read_csv(f'../Data/{dataset_name}/sentence_level_sentiment.csv')
+        word_df = pd.read_csv(f'Data/{dataset_name}/word_level_sentiment.csv')
+        sentence_df = pd.read_csv(f'Data/{dataset_name}/sentence_level_sentiment.csv')
     word_to_token_map_list = torch.load(f'GT_Samples/{dataset_name}/word_to_token_map_inputsize_{model_input_size}.pt', weights_only=False)
     tokens_list = torch.load(f'GT_Samples/{dataset_name}/tokens_inputsize_{model_input_size}.pt', weights_only=False)  # needed for global index offset
     split_df = get_split_df(dataset_name)
@@ -788,7 +788,7 @@ def print_paragraph_or_sentence_gt_examples(dataset_name, model_input_size, num_
         level = 'paragraph'
     
     gt_dir = f"GT_Samples/{dataset_name}"
-    data_dir = f"../Data/{dataset_name}"
+    data_dir = f"Data/{dataset_name}"
 
     # Load GT dictionaries
     concept_gt = torch.load(f"{gt_dir}/gt_samples_per_concept_inputsize_{model_input_size}.pt", weights_only=False)
@@ -833,7 +833,7 @@ def map_concepts_to_token_indices(dataset_name, tokens_list, relevant_tokens, mo
         defaultdict(list): A dictionary where keys are concepts and values are lists of image indices 
                            that contain the respective concept.
     """
-    metadata = pd.read_csv(f'../Data/{dataset_name}/metadata.csv')
+    metadata = pd.read_csv(f'Data/{dataset_name}/metadata.csv')
     
     
     concepts = [col for col in metadata.columns if col != "sample_filename"]
@@ -917,12 +917,12 @@ def compute_all_concept_masks_clevr(dataset_name='CLEVR', batch_size=32):
             object_masks.append(masks[i, :, :])
     
     #save concepts
-    torch.save(object_masks, f'../Data/{dataset_name}/object_segmentations.pt')
-    print(f'Masks saved to ../Data/{dataset_name}/object_segmentations.pt')
+    torch.save(object_masks, f'Data/{dataset_name}/object_segmentations.pt')
+    print(f'Masks saved to Data/{dataset_name}/object_segmentations.pt')
 
     
 def retrieve_all_concept_segmentations_clevr(img_idx, dataset_name,n_attributes=2):
-    object_masks_all_images =  torch.load(f'../Data/{dataset_name}/object_segmentations.pt')
+    object_masks_all_images =  torch.load(f'Data/{dataset_name}/object_segmentations.pt')
     object_mask = object_masks_all_images[img_idx]
     present_concepts = retrieve_present_concepts(img_idx, dataset_name)
     object_masks = {}
@@ -933,7 +933,7 @@ def retrieve_all_concept_segmentations_clevr(img_idx, dataset_name,n_attributes=
 
 #### Broden #####
 def retrieve_all_concept_segmentations_broden(img_idx, dataset_name):
-    object_masks_all_images =  torch.load(f'../Data/{dataset_name}/segmentations.pt')
+    object_masks_all_images =  torch.load(f'Data/{dataset_name}/segmentations.pt')
     return object_masks_all_images[img_idx]
 
 
@@ -941,19 +941,19 @@ def retrieve_all_concept_segmentations_broden(img_idx, dataset_name):
 #### Coco #####
 def retrieve_all_concept_segmentations_coco(img_idx, show_debug=False):
     # Load stacked metadata file
-    metadata = pd.read_csv(f'../Data/Coco/metadata.csv')  # assumes cal + val stacked
+    metadata = pd.read_csv(f'Data/Coco/metadata.csv')  # assumes cal + val stacked
     row = metadata.loc[img_idx]
     cal = row['split'] == 'cal'
     image_filename = os.path.basename(row['image_path'])  # e.g., "000000123456.jpg"
 
     # Choose appropriate annotation file and image folder
     ann_file = (
-        '../Data/Coco-Cal/annotations/instances_train2017.json'
-        if cal else '../Data/Coco/instances_val2017.json'
+        'Data/Coco-Cal/annotations/instances_train2017.json'
+        if cal else 'Data/Coco/instances_val2017.json'
     )
     image_folder = (
-        '../Data/Coco-Cal/train2017'
-        if cal else '../Data/Coco/val2017'
+        'Data/Coco-Cal/train2017'
+        if cal else 'Data/Coco/val2017'
     )
     image_path = os.path.join(image_folder, image_filename)
 
@@ -1107,7 +1107,7 @@ def retrieve_all_concept_segmentations_coco(img_idx, show_debug=False):
 ###### Surgery #######
 def retrieve_all_concept_segmentations_surgery(img_idx, input_image_size=(224, 224)):
     organs = {0: 'background', 1: 'liver', 2: 'gallbladder', 3: 'hepatocystic_triangle'}
-    all_segmentations = torch.load('../Data/Surgery/segmentations.pt')
+    all_segmentations = torch.load('Data/Surgery/segmentations.pt')
     img_segmentations = all_segmentations[img_idx]
 
     concept_segmentations = {}

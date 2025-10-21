@@ -24,7 +24,7 @@ from contextlib import contextmanager
 from tqdm import tqdm
 
 import numpy as np
-from utils.convert_to_memmap import convert_embeddings_to_memmap, MemmapEmbeddingLoader
+# from utils.convert_to_memmap import convert_embeddings_to_memmap, MemmapEmbeddingLoader
 
 
 class ChunkedEmbeddingLoader:

@@ -33,10 +33,6 @@ from utils.gt_concept_segmentation_utils import map_concepts_to_patch_indices, r
 from utils.text_visualization_utils import get_glob_tok_indices_from_sent_idx, get_sent_idx_from_global_token_idx
 from typing import Dict, List, Tuple, Union, Optional
 from utils.memory_management_utils import MatchedConceptActivationLoader, ChunkedActivationLoader
-from utils.loader_compatible_functions import (
-    get_patch_detection_tensor as get_patch_detection_tensor_loader,
-    compute_inversion_metrics
-)
 
 ############# Find Thresholds for Concepts #############
 def compute_avg_rand_threshold(embeddings, patch_indices, percentile, n_vectors=5, device="cuda"):
